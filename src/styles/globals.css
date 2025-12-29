@@ -1,0 +1,369 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════════
+   BASE STYLES - exakt wie HTML
+═══════════════════════════════════════════════════════════════ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  background: #030308;
+  color: #f8fafc;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLLBAR STYLES
+═══════════════════════════════════════════════════════════════ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030308;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.5);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ANIMATIONS - exakt wie HTML keyframes
+═══════════════════════════════════════════════════════════════ */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes glowRotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes rainbowMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+@keyframes textGlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SLIDER STYLES (for Calculator)
+═══════════════════════════════════════════════════════════════ */
+.calc-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+  cursor: pointer;
+}
+
+.calc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+  transition: transform 0.2s ease;
+}
+
+.calc-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.calc-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FORM SELECT STYLES
+═══════════════════════════════════════════════════════════════ */
+.form-select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236366f1' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+}
+
+.form-select option {
+  background: #1a1a2e;
+  color: #f8fafc;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GLOW PRO CARD - exakt wie HTML .pricing-card.glow-pro
+═══════════════════════════════════════════════════════════════ */
+.pricing-card-glow-pro {
+  position: relative;
+  background: rgba(15, 10, 30, 0.8);
+  overflow: hidden;
+}
+
+.pricing-card-glow-pro::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #6366f1, #a855f7, #22d3ee, #10b981, #f59e0b, #f43f5e, #6366f1);
+  background-size: 400% 400%;
+  animation: glowRotate 8s linear infinite;
+  border-radius: 22px;
+  z-index: -1;
+}
+
+.pricing-card-glow-pro::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: rgba(15, 10, 30, 0.95);
+  border-radius: 18px;
+  z-index: -1;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RAINBOW BORDER TEAM CARD - exakt wie HTML .pricing-card.rainbow-border
+═══════════════════════════════════════════════════════════════ */
+.pricing-card-rainbow {
+  position: relative;
+  background: rgba(15, 10, 30, 0.8);
+  border: none;
+}
+
+.pricing-card-rainbow::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(90deg, #6366f1, #a855f7, #22d3ee, #10b981, #6366f1);
+  background-size: 300% 100%;
+  animation: rainbowMove 6s linear infinite;
+  border-radius: 22px;
+  z-index: -1;
+}
+
+.pricing-card-rainbow::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  background: rgba(15, 10, 30, 0.98);
+  border-radius: 17px;
+  z-index: -1;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GRADIENT TEXT FOR GLOW CARD
+═══════════════════════════════════════════════════════════════ */
+.text-glow-gradient {
+  background: linear-gradient(90deg, #6366f1, #a855f7, #22d3ee);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textGlow 4s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COLUMN FLUTES (Temple)
+═══════════════════════════════════════════════════════════════ */
+.column-flutes {
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    transparent 8px,
+    rgba(0, 0, 0, 0.1) 8px,
+    rgba(0, 0, 0, 0.1) 9px,
+    transparent 9px,
+    transparent 17px
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   STAR ANIMATION
+═══════════════════════════════════════════════════════════════ */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BADGE DOT PULSE
+═══════════════════════════════════════════════════════════════ */
+.badge-dot-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TYPING CURSOR BLINK
+═══════════════════════════════════════════════════════════════ */
+.typing-cursor {
+  display: inline-block;
+  width: 10px;
+  height: 18px;
+  background: #6366f1;
+  animation: blink 1s step-end infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS - exakt wie HTML @media queries
+═══════════════════════════════════════════════════════════════ */
+
+/* 1024px breakpoint */
+@media (max-width: 1024px) {
+  /* Who grid */
+  .who-grid-responsive {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Columns container (temple) */
+  .columns-responsive {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 100px !important;
+  }
+  
+  /* Column shaft */
+  .column-shaft-responsive {
+    min-height: 400px !important;
+  }
+  
+  /* Objection grid */
+  .objection-grid-responsive {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Testimonials grid */
+  .testimonials-grid-responsive {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Pricing grid */
+  .pricing-grid-responsive {
+    grid-template-columns: 1fr !important;
+    max-width: 400px !important;
+  }
+  
+  /* Calculator results */
+  .calc-results-responsive {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 768px breakpoint */
+@media (max-width: 768px) {
+  /* Nav */
+  .nav-responsive {
+    padding: 12px 20px !important;
+  }
+  
+  .nav-links-responsive {
+    display: none !important;
+  }
+  
+  /* Sections */
+  .section-responsive {
+    padding: 60px 20px !important;
+  }
+  
+  /* Hero CTA */
+  .hero-cta-responsive {
+    flex-direction: column !important;
+  }
+  
+  /* CodeLens overlay */
+  .codelens-overlay-responsive {
+    display: none !important;
+  }
+  
+  /* Code window */
+  .code-window-responsive {
+    transform: none !important;
+  }
+  
+  /* Comparison row */
+  .comparison-row-responsive {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .comparison-header-responsive {
+    display: none !important;
+  }
+  
+  /* Value item */
+  .value-item-responsive {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+  
+  .value-price-responsive {
+    text-align: center !important;
+    margin-top: 16px !important;
+  }
+  
+  /* Calculator */
+  .calculator-responsive {
+    padding: 30px 20px !important;
+  }
+  
+  /* Form row */
+  .form-row-responsive {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Day grid */
+  .day-grid-responsive {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 500px breakpoint (tier selector) */
+@media (max-width: 500px) {
+  .tier-selector-responsive {
+    grid-template-columns: 1fr !important;
+  }
+}
